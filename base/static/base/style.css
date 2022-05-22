@@ -1,0 +1,1963 @@
+:root {
+    --hover: #1c5bda;
+}
+*{
+    margin: 0; /*from auto to 0*/
+    font-family: 'Poppins', 'san-serif';
+}
+.messages .error{
+    color:red;
+}
+.main-container{
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+/* Login CSS Start */
+.login-page{
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;
+    margin-inline: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.login-form-container{
+    width: 100%;
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    margin-inline: auto;
+}
+.logo-container{
+    width: 100%;
+    max-width: 80%;
+    margin-inline: auto;
+    text-align: center;
+}
+.logo-container img{
+    width: 100%;
+    max-width: 80%;
+}
+.username-container{
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.username-container label, .password-container label{
+    color: #2e70f9;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 1% 0;
+}
+.user-input{
+    border: 1px solid #ababab;
+    max-width: 95%;
+    width: 100%;
+    padding: 2%;
+    outline: none;
+    border-radius: 5px;
+    transition: background-color 0.5s ease;
+    transition: border 0.5s linear;
+}
+.user-input:focus {
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(238, 238, 238);
+}
+.password-container{
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 2% 0 4% 0;
+    padding: 2% 0;
+}
+.login-btn{
+    width: 100%;
+    max-width: 100%;
+}
+.submit-btn{
+    width: 100%;
+    max-width: 100%;
+    padding: 2.5%;
+    border: none;
+    background-color: #2e70f9;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.submit-btn:hover {
+    background-color: var(--hover);
+    color: white;
+}
+.forgot-pass-container{
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    margin-top: 2%;
+}
+.forgot-pass-container a{
+    color: #2e70f9;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+.sign-up-container{
+    width: 100%;
+    max-width: 60%;
+    display: flex;
+    margin-inline: auto;
+    margin-top: 1%;
+    font-size: 14px;
+    padding: 2% 0;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.sign-up-container p{
+    margin: 0 1%;
+    color: #3c3e40;
+    font-weight: 600;
+    width: 100%;
+    max-width: fit-content;
+}
+.sign-up-container a{
+    text-decoration: none;
+    color: #2e70f9;
+    font-weight: 600;
+    width: 100%;
+    max-width: fit-content;
+}
+.login-page-img{
+    display: none;
+}
+/*Login CSS when >600px screen size*/
+@media screen and (min-width: 600px) {
+    .login-page{
+        width: 100%;
+        max-width: 55%;
+        height: 100vh;
+        margin-inline: auto;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .login-form-container{
+        width: 100%;
+        max-width: 60%;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        justify-content: center;
+        margin-inline: auto;
+    }
+    .logo-container{
+        width: 100%;
+        max-width: 60%;
+        margin-inline: auto;
+        text-align: center;
+    }
+    .logo-container img{
+        width: 100%;
+        max-width:80%;
+    }
+    .username-container{
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .username-container label, .password-container label{
+        color: #2e70f9;
+        font-size: 14px;
+        font-weight: 600;
+        margin: 1% 0;
+    }
+    .user-input{
+        border: 1px solid #ababab;
+        max-width: 95%;
+        width: 100%;
+        padding: 2%;
+        outline: none;
+        border-radius: 5px;
+        transition: background-color 0.5s ease;
+        transition: border 0.5s linear;
+    }
+    .user-input:focus {
+        border: 1.2px solid rgb(0, 0, 0);
+        background-color: rgb(238, 238, 238);
+    }
+    .password-container{
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin: 2% 0 4% 0;
+        padding: 2% 0;
+    }
+    .login-btn{
+        width: 100%;
+        max-width: 100%;
+    }
+    .submit-btn{
+        width: 100%;
+        max-width: 100%;
+        padding: 2.5%;
+        border: none;
+        background-color: #2e70f9;
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .submit-btn:hover {
+        background-color: var(--hover);
+        color: white;
+    }
+    .forgot-pass-container{
+        text-align: right;
+        display: flex;
+        flex-direction: column;
+        font-size: 14px;
+        margin-top: 2%;
+    }
+    .forgot-pass-container a{
+        color: #2e70f9;
+        text-decoration: none;
+        font-weight: 600;
+        cursor: pointer;
+    }
+    .sign-up-container{
+        width: 100%;
+        max-width: 60%;
+        display: flex;
+        margin-inline: auto;
+        margin-top: 1%;
+        font-size: 14px;
+        padding: 2% 0;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .sign-up-container p{
+        margin: 0 1%;
+        color: #3c3e40;
+        font-weight: 600;
+        width: 100%;
+        max-width: fit-content;
+    }
+    .sign-up-container a{
+        text-decoration: none;
+        color: #2e70f9;
+        font-weight: 600;
+        width: 100%;
+        max-width: fit-content;
+    }
+
+    .login-page-img{
+        width: 100%;
+        max-width: 50%;
+        display: inline-block;
+    }
+    .login-page-img img{
+        object-fit: cover;
+        width: 100%;
+        height: 100vh;
+    }
+}
+/*Login CSS End*/
+
+/* Register CSS Start */
+.register-page{
+    width: 100%;
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-inline: auto;
+}
+.register-page-img{
+    width: 100%;
+    max-width: 50%;
+    display: none;
+}
+.register-page-img img{
+    object-fit: cover;
+    width: 100%;
+    height: 100vh;
+}
+.register-page a{
+    /* border: 1px solid #ababab; */
+    /* padding: 2.5%; */
+    text-decoration: none;
+    text-align: center;
+    color: #2f70f9;
+    font-weight: 600;
+    /* border-radius: 5px; */
+    cursor: pointer;
+}
+.register-form-container label{
+    color: #2e70f9;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 1% 0;
+}
+.form-input{
+    border: 1px solid #ababab;
+    max-width: 95%;
+    width: 100%;
+    padding: 2%;
+    margin-bottom: 2%;
+    outline: none;
+    border-radius: 5px;
+    transition: background-color 0.5s ease;
+    transition: border 0.5s linear;
+}
+.form-input:focus {
+    border: 1.2px solid rgb(0, 0, 0);
+    background-color: rgb(238, 238, 238);
+}
+.register-submit-btn{
+    width: 100%;
+    max-width: 100%;
+    margin: 5% 0;
+    cursor: pointer;
+}
+/*Register CSS when >600px screen size*/
+@media screen and (min-width: 600px){
+    .register-page{
+        width: 100%;
+        max-width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-inline: auto;
+    }
+    .register-page-img{
+        width: 100%;
+        max-width: 50%;
+        display: inline-block;
+    }
+    .register-page-img img{
+        object-fit: cover;
+        width: 100%;
+        height: 100vh;
+    }
+    .register-page a{
+        width: 100%;
+        max-width: 65%;
+        margin-inline: auto;
+        /* border: 1px solid #ababab; */
+        /* padding: 2.5%; */
+        text-decoration: none;
+        text-align: center;
+        color: #2f70f9;
+        font-weight: 600;
+        /* border-radius: 5px; */
+        cursor: pointer;
+    }
+    .register-form-container{
+        width: 100%;
+        max-width: 60%;
+        margin-inline: auto;
+    }
+    .register-form-container label{
+        color: #2e70f9;
+        font-size: 14px;
+        font-weight: 600;
+        margin: 1% 0;
+    }
+    .form-input{
+        border: 1px solid #ababab;
+        max-width: 95%;
+        width: 100%;
+        padding: 2%;
+        margin-bottom: 2%;
+        outline: none;
+        border-radius: 5px;
+        transition: background-color 0.5s ease;
+        transition: border 0.5s linear;
+    }
+    .register-submit-btn{
+        width: 100%;
+        max-width: 100%;
+        margin: 5% 0;
+        cursor: pointer;
+    }
+}
+/* Register CSS End */
+
+/*Forgot/Reset Password CSS Start*/
+.reset-main-container{
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;
+    display: flex;
+    background-color: #2e70f9;
+}
+.reset-form-container{
+    width: 100%;
+    max-width: 70%;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.form-container{
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 15px;
+    padding: 5%;
+    box-shadow: 0px 0px 30px #134abf;
+    background-color: #ffffff;
+}
+.forgot-icon-cont, 
+.sent-icon-cont,
+.done-icon-cont{
+    width: 100%;
+    max-width: 50%;
+    margin-inline: auto;
+    text-align: center;
+}
+.forgot-icon-cont img, 
+.sent-icon-cont img,
+.done-icon-cont img{
+    width: 100%;
+    max-width: 45%;
+}
+.forgot-form{
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.forgot-form-txt{
+    text-align: center;
+    margin-bottom: 5%;
+}
+.forgot-form-txt p{
+    font-size: 14px;
+    text-align: center;
+    color: #363636;
+}
+.forgot-form-txt label{    
+    color: #2e70f9;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 1% 0;
+    text-align: center;
+}
+.forgot-form-input{
+    display: flex;
+    flex-direction: column;
+}
+.forgot-form-input label{
+    color: #2e70f9;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 1% 0;
+}
+.forgot-form-input input{
+    border: 1px solid #ababab;
+    max-width: 95%;
+    width: 100%;
+    padding: 2%;
+    margin-bottom: 2%;
+    outline: none;
+    border-radius: 5px;
+    transition: background-color 0.5s ease;
+    transition: border 0.5s linear;
+}
+.forgot-form-input input:focus {
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(238, 238, 238);
+}
+.forgot-form-btn{
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
+    margin-bottom: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.forgot-form-btn input{
+    width: 100%;
+    max-width: 100%;
+    padding: 2%;
+    border: none;
+    background-color: #2e70f9;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.forgot-form-btn input:hover {
+    background-color: var(--hover);
+    color: white;
+}
+.forgot-btn{
+    text-align: center;
+}
+.forgot-btn a{
+    text-decoration: none;
+    color: #2e70f9;
+    font-weight: 600;
+}
+
+/*password reset css*/
+.password-reset-sent-main-cont,
+.password-reset-done-main-cont,
+.password-reset-form{
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;
+    display: flex;
+    background-color: #2e70f9;
+    flex-direction: column;
+    justify-content: center;
+}
+.sent-txt-container,
+.done-txt-cont,
+.reset-form-cont{
+    width: 100%;
+    max-width: 30%;
+    margin-inline: auto;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 15px;
+    padding: 2%;
+    box-shadow: 0px 0px 30px #134abf;
+    background-color: #ffffff;
+}
+.txt-cont h3,
+.done-txt-cont h3,
+.reset-form-cont h3{
+    color: #2e70f9;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 5%;
+    text-align: center;
+}
+.txt-cont p,
+.done-txt-cont p{
+    font-size: 14px;
+    text-align: center;
+    color: #363636;
+}
+.reset-sent-btn,
+.reset-done-btn{
+    text-align: center;
+    margin-top: 5%;
+}
+.reset-sent-btn a,
+.reset-done-btn a{
+    text-decoration: none;
+    color: #2e70f9;
+    font-size: 16px;
+    font-weight: 600;
+}
+.old-pass-input label,
+.new-pass-input label,
+.confirm-new-input label{
+    color: #2e70f9;
+    font-size: 16px;
+    font-weight: 600;
+}
+.old-pass-input,
+.new-pass-input,
+.confirm-new-input,
+.update-pass-btn{
+    width: 100%;
+    max-width: 100%;
+    margin-inline: auto;
+}
+.confirm-new-input{
+    margin-bottom: 3%;
+}
+.update-pass-btn input{
+    width: 100%;
+    padding: 2%;
+    border: none;
+    background-color: #2e70f9;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.update-pass-btn input:hover {
+    background-color: var(--hover);
+    color: white;
+}
+@media screen and (min-width: 600px){
+    .reset-main-container{
+        width: 100%;
+        max-width: 100%;
+        height: 100vh;
+        display: flex;
+        background-color: #2e70f9;
+    }
+    .reset-form-container{
+        width: 100%;
+        max-width: 50%;
+        margin-inline: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .form-container{
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 15px;
+        padding: 5%;
+        box-shadow: 0px 0px 30px #134abf;
+        background-color: #ffffff;
+    }
+}
+@media screen and (min-width: 1024px){
+    .reset-main-container{
+        width: 100%;
+        max-width: 100%;
+        height: 100vh;
+        display: flex;
+        background-color: #2e70f9;
+    }
+    .reset-form-container{
+        width: 100%;
+        max-width: 30%;
+        margin-inline: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .form-container{
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-radius: 15px;
+        padding: 5%;
+        box-shadow: 0px 0px 30px #134abf;
+        background-color: #ffffff;
+    }
+    .forgot-icon-cont{
+        width: 100%;
+        max-width: 50%;
+        margin-inline: auto;
+        text-align: center;
+    }
+    .forgot-icon-cont img{
+        width: 100%;
+        max-width: 45%;
+    }
+    .forgot-form{
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .forgot-form-txt{
+        text-align: center;
+        margin-bottom: 5%;
+    }
+    .forgot-form-txt p{
+        font-size: 14px;
+        text-align: center;
+        color: #363636;
+    }
+    .forgot-form-txt label{    
+        color: #2e70f9;
+        font-size: 24px;
+        font-weight: 600;
+        margin: 1% 0;
+        text-align: center;
+    }
+    .forgot-form-input{
+        display: flex;
+        flex-direction: column;
+    }
+    .forgot-form-input label{
+        color: #2e70f9;
+        font-size: 16px;
+        font-weight: 600;
+        margin: 1% 0;
+    }
+    .forgot-form-input input{
+        border: 1px solid #ababab;
+        max-width: 95%;
+        width: 100%;
+        padding: 2%;
+        margin-bottom: 2%;
+        outline: none;
+        border-radius: 5px;
+        transition: background-color 0.5s ease;
+        transition: border 0.5s linear;
+    }
+    .forgot-form-input input:focus {
+        border: 1px solid rgb(0, 0, 0);
+        background-color: rgb(238, 238, 238);
+    }
+    .forgot-form-btn{
+        width: 100%;
+        max-width: 100%;
+        margin-inline: auto;
+        margin-bottom: 5%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .forgot-form-btn input{
+        width: 100%;
+        max-width: 100%;
+        padding: 2%;
+        border: none;
+        background-color: #2e70f9;
+        color: #ffffff;
+        font-weight: 500;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .forgot-form-btn input:hover {
+        background-color: var(--hover);
+        color: white;
+    }
+    .forgot-btn{
+        text-align: center;
+    }
+    .forgot-btn a{
+        text-decoration: none;
+        color: #2e70f9;
+        font-weight: 600;
+    }
+}
+/*Forgot/Reset Password CSS End*/
+
+/*Nav Section CSS Start*/
+.main-nav-bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 65px;
+    align-items: center;
+    background-color: #ffffff;
+    position: fixed;
+    width: 100%;
+    max-width: 100%;
+    box-shadow: 0px 0px 20px #ababab26;
+    z-index: 100;
+}
+.nav-bar-logo{
+    width: 100%;
+    max-width: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav-bar-logo a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.nav-bar-logo img{
+    width: 100%;
+    max-width: 85%;
+    display: flex;
+    align-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+
+.nav-bar-search{
+    width: 100%;
+    max-width: 40%;
+    display: flex;
+    justify-content: center;
+}
+.nav-bar-search form{
+    width: 100%;
+    max-width: 100%;
+}
+.nav-bar-search input{
+    width: 100%;
+    max-width: -webkit-fill-available;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ababab;
+    padding: 1%;
+}
+.nav-bar-search input:focus{
+    border: 1px solid #e4e4e4;
+    background-color: #f5f5f5;
+}
+
+.nav-bar-options{
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
+}
+.nav-bar-options a{
+    padding: 5% 1%;
+    text-decoration: none;
+    font-weight: 500;
+    color: #434343;
+    font-size: 1vw;
+}
+.nav-bar-options a:hover{
+    color: #2f70f9;
+    border-bottom: 2px solid #2f70f9;
+}
+/*Nav Section CSS End*/
+
+/*Home CSS Start*/
+.homepage-main-cont{
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;
+}
+.home-banner-container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.banner-photo-cont{
+    width: 100%;
+    max-width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-inline: auto;
+}
+.banner-photo-cont img{
+    width: 100%;
+    max-width: 400px;
+    margin-inline: auto;
+}
+.banner-txt-cont{
+    width: 100%;
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3%;
+}
+.banner-txt-cont h2{
+    font-size: 5vw;
+    color: #434343;
+}
+.banner-txt-cont span{
+    color: #2f70f9;
+}
+.banner-txt-cont h3{
+    color: #858585;
+    font-weight: 500;
+    overflow-wrap: break-word;
+    font-size: 1.5vw;
+}
+.banner-btn{
+    width: 100%;
+    max-width: 30%;
+    border: none;
+    border-radius: 50px;
+    padding: 2%;
+    background-color: #2f70f9;
+    color: #ffffff;
+    margin-top: 5%;
+    font-weight: 500;
+    font-size: 1vw;
+    cursor: pointer;
+}
+.banner-btn:hover{
+    background-color: var(--hover);
+    color: white;
+}
+.job-options{
+    width: 100%;
+    max-width: 50%;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 3%;
+    text-align: center;
+    box-shadow: 0px 0px 15px #ababab85;
+}
+.job-options a{
+    text-decoration: none;
+    width: 100%;
+    max-width: 33%;
+    padding: 2% 5%;
+    color: #363636;
+    border: 1px solid #e5e5e585;
+    font-size: 1vw;
+    font-weight: 500;
+}
+.job-options a:hover{
+    background-color: #2f70f9;
+    color: #ffffff;
+}
+
+.banner-job-main-container{
+    width: 100%;
+    max-width: 80%;
+    margin-inline: auto;
+    padding: 0 2%;
+}
+.posted-job-title{
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+}
+.posted-job-title h3{
+    color: #2f70f9;
+    font-size: 2vw;
+    font-weight: 600;
+}
+
+.job-list-cont{
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 3% 0;
+}
+.job-list-cont a{
+    text-decoration: none;
+    width: 100%;
+    max-width: 30%;
+}
+.job-container{
+    height: 35vh;
+    padding: 10%;
+    border-radius: 15px;
+    margin: 0 5%;
+    box-shadow: 0px 0px 15px #ababab85;
+}
+.job-container:hover{
+    background-color: #f5f5f5;
+    color: white;
+}
+.company-name{
+    font-size: 1.5vw;
+    color: #2f70f9;
+    font-weight: 600;
+    margin-bottom: 3%;
+}
+.job-title{
+    font-size: 1vw;
+    color: #434343;
+    font-weight: 500;
+    margin-bottom: 7%;
+    font-style: italic;
+}
+.job-desc{
+    font-size: 0.8vw;
+    color: #7c7c7c;
+    margin-bottom: 7%;
+}
+.job-location{
+    font-size: 0.8vw;
+    color: #434343;
+    font-weight: 500;
+}
+.job-status{
+    color: #2f70f9;
+    font-size: 1vw;
+    font-weight: 600;
+}
+.job-container-main{
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-45%);
+}
+.pagination{
+    width: 100%;
+    max-width: 50%;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 2% 0;
+}
+.pagination a{
+    text-decoration: none;
+    color: #2e70f9;
+}
+.step-links{
+    width: 100%;
+    max-width: 50%;
+    text-align: center;
+    font-size: 1vw;
+}
+.page-num{
+    background-color: #3171f9;
+    color: #ffffff;
+    padding: 2% 5%;
+    margin: 2%;
+}
+/*Home CSS End*/
+
+/*Company Home CSS Start*/
+.company-home-main-cont{
+    width: 100%;
+    max-width: 100%;
+}
+.company-home-form-cont{
+    width: 100%;
+    max-width: 50%;
+    margin-inline: auto;
+    display: flex;
+    padding-top: 6%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+}
+.form-cont-title{
+    text-align: center;
+    margin-bottom: 1%;
+}
+.company-home-form-cont h3{
+    color: #2f70f9;
+    font-size: 30px;
+}
+.company-form-cont{
+    display: none;
+}
+.company-form-cont,
+.company-posted-form{
+    width: 100%;
+    max-width: 100%;
+    padding: 3%;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 15px #ababab85;
+    border-radius: 10px;
+    margin-bottom: 3%;
+    /* display: none; */
+}
+.company-form-cont p{
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.company-form-input{
+    padding: 1%;
+}
+.company-form-textarea{
+    height: 130px;
+    resize: none;
+}
+.company-form-input:focus, 
+.company-form-textarea:focus{
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(238, 238, 238);
+}
+.part-time-cont{
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 15px;
+}
+.is-hiring-cont{
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 15px;
+}
+.job-title-cont, 
+.job-desc-cont, 
+.salary-cont,
+.qualification-cont{
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+.job-title-cont label, 
+.job-desc-cont label, 
+.salary-cont label,
+.qualification-cont label,
+.part-time-cont label{
+    color: #2e70f9;
+    font-size: 14px;
+    font-weight: 600;
+}
+.is-hiring-cont label{
+    color: #2e70f9;
+    font-size: 14px;
+    font-weight: 600;
+}
+.company-submit-btn{
+    width: 100%;
+    padding: 7px;
+    border: none;
+    background-color: #2f70f9;
+    color: #ffffff;
+    font-size: 1vw;
+    font-weight: 500;
+}
+.close-job-btn{
+    width: 100%;
+    padding: 7px;
+    border: none;
+    background-color: #363636;
+    color: #ffffff;
+    font-size: 1vw;
+    font-weight: 500;
+    margin-top: 1%;
+}
+.job-company-name{
+    color: #363636;
+}
+.company-job-tile{
+    color: #2f70f9;
+    font-weight: 600;
+    font-size: 18px;
+}
+.company-job-desc{
+    font-size: 16px;
+    font-weight: 500;
+    font-style: italic;
+    color: #ababab;
+}
+.company-job-salary{
+    color: #2f70f9;
+    font-weight: 500;
+    font-size: 16px;
+}
+.company-job-stat{
+    font-weight: 500;
+    margin-top: 1%;
+}
+.comp-func-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 2%;
+}
+.comp-func-btn a{
+    text-decoration: none;
+    color: #ffffff;
+}
+.view-app, 
+.edit-job-info{
+    padding: 1%;
+    width: 30%;
+    text-align: center;
+    background-color: #2f70f9;
+}
+.company-del-job{
+    padding: 1%;
+    width: 30%;
+    text-align: center;
+    background-color: #363636;
+}
+/*Company Home CSS End*/
+
+/*Company Edit CSS Start*/
+.company-edit-form-cont{
+    width: 100%;
+    max-width: 40%;
+    margin-inline: auto;
+    display: flex;
+    padding-top: 8%;
+    flex-direction: column;
+    flex-wrap:nowrap;
+    align-content: center;
+}
+
+.form-cont-title{
+    text-align: center;
+    margin-bottom: 1%;
+}
+.company-home-form-cont h3{
+    color: #2f70f9;
+    font-size: 30px;
+}
+.company-form-cont,
+.company-posted-form{
+    width: 100%;
+    max-width: 100%;
+    padding: 3%;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 15px #ababab85;
+    border-radius: 10px;
+    margin-bottom: 3%;
+}
+.company-form-cont p{
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.company-form-input{
+    padding: 1%;
+}
+.company-form-textarea{
+    height: 130px;
+    resize: none;
+}
+.company-form-input:focus, 
+.company-form-textarea:focus{
+    border: 1px solid rgb(0, 0, 0);
+    background-color: rgb(238, 238, 238);
+}
+.part-time-cont{
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 15px;
+}
+.job-title-cont, 
+.job-desc-cont, 
+.salary-cont,
+.qualification-cont{
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+.job-title-cont label, 
+.job-desc-cont label, 
+.salary-cont label,
+.qualification-cont label,
+.part-time-cont label{
+    color: #2e70f9;
+    font-size: 14px;
+    font-weight: 600;
+}
+.company-submit-btn{
+    width: 100%;
+    padding: 7px;
+    border: none;
+    background-color: #2f70f9;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+}
+.job-company-name{
+    color: #363636;
+}
+.company-job-tile{
+    color: #2f70f9;
+    font-weight: 600;
+    font-size: 18px;
+}
+.company-job-desc{
+    font-size: 16px;
+    font-weight: 500;
+    font-style: italic;
+    color: #ababab;
+}
+.company-job-salary{
+    color: #2f70f9;
+    font-weight: 500;
+    font-size: 16px;
+}
+.company-job-stat{
+    font-weight: 500;
+    margin-top: 1%;
+}
+
+.company-update-btn{
+    width: 100%;
+    padding: 7px;
+    border: none;
+    background-color: #2f70f9;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+}
+/*Company Edit CSS End*/
+
+/*User Profile CSS Start*/
+/*User Profile CSS Start*/
+.user-profile-main-cont{
+    width: 100%;
+    height: 100vh;
+    background-color: #f4faff;
+}
+.user-profile{
+    height: 100vh;
+    width: 70%;
+    max-width: 100%;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 8%;
+}
+.user-leftside-section{
+    width: 100%;
+    max-width: 25%;
+    display: flex;
+    flex-direction: column;
+    margin-right: 2%;
+}
+.user-action-btn, 
+.profile-pic-container,
+.user-resume-container{
+    width: 100%;
+    max-width: 80%;
+    background-color: #ffffff;
+    margin-right: 2%;
+    border-radius: 10px;
+    height: max-content;
+    padding: 10%;
+    box-shadow: 0px 0px 15px #ababab85;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 3%;
+}
+.profile-info-container{
+    width: 100%;
+    max-width: 80%;
+    background-color: #ffffff;
+    border-radius: 10px;
+    height: max-content;
+    padding: 3%;
+    box-shadow: 0px 0px 15px #ababab85;
+}
+.change-profile-picture{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+.user-picture-container{
+    width: 100%;
+    max-width: 80%;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5%;
+}
+.user-pic-upload-container{
+    width: 100%;
+    max-width: 100%;
+    margin-top: 5%;
+}
+.change-profile-picture img{
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+}
+#id_user_image,
+#user_resume{
+    width: 100%;
+    max-width: 100%;
+    font-size: 16px;
+}
+.download-res-cont{
+    width: 100%;
+    max-width: 100%;
+    margin-top: 5%;
+    font-size: 1vw;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.download-res-cont a{
+    font-size: 1vw;
+    text-decoration: none;
+    border: 2px solid #2f70f9;
+    padding: 3%;
+    color: #2f70f9;
+}
+.upload-pic-btn,
+.upload-res-btn{
+    border: none;
+    color: #ffffff;
+    background-color: #2f70f9;
+    padding: 5%;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 5%;
+    cursor: pointer;
+    font-size: 1vw;
+    border-radius: 5px;
+}
+.user-info-cont, 
+.upload-profile-resume,
+.user-profile-skills,
+.user-profile-works{
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 3%;
+}
+.user-profile-skills ul{
+    margin-bottom: 1.5%;
+}
+.user-info-cont{
+    display: flex;
+}
+.user-profile-personal-info{
+    width: 100%;
+    max-width: 100%;
+}
+.user-profile-personal-info h3{
+    font-size: 3vw;
+    color: #2f70f9;
+}
+.user-profile-personal-info h5{
+    font-style: italic;
+    color: #ababab;
+    font-size: 1vw;
+    font-weight: normal;
+    margin-bottom: 1%;
+}
+.user-profile-personal-info p{
+    font-size: 16px;
+}
+.user-profile-personal-info label{
+    font-size: 1vw;
+    color: #2f70f9;
+    font-weight: 600;
+}
+.user-profile-personal-info span{
+    font-size: 1vw;
+    font-weight: 500;
+}
+.edit-profile-btn{
+    width: 100%;
+    max-width: 100%;
+    background-color:#2f70f9;
+    padding: 4% 0;
+    text-align: center;
+    margin-bottom: 2%;
+    white-space: nowrap;
+    border-radius: 5px;
+}
+.user-change-password{
+    width: 100%;
+    max-width: 100%;
+    background-color: #2f70f9;
+    padding: 4% 0;
+    text-align: center;
+    margin-bottom: 2%;
+    white-space: nowrap;
+    border-radius: 5px;
+}
+.user-change-password a,
+.user-delete-btn a,
+.edit-profile-btn a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1vw;
+}
+.user-delete-btn{
+    width: 100%;
+    max-width: 100%;
+    background-color: #cf2f2f;
+    padding: 4% 0;
+    text-align: center;
+    border-radius: 5px;
+}
+.skill-cont{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.skill-cont p, 
+.skill-cont a{
+    font-size: 1vw;
+}
+.skill-cont a,
+.work-title a{
+    text-decoration: none;
+    color: #cf2f2f;
+    font-weight: 500;
+}
+.add-skill-txt,
+.add-work-txt{
+    font-size: 1.2vw;
+}
+#user-edit-profile-form h4,
+.user-profile-skills h4,
+.user-profile-works h4{
+    color: #2f70f9;
+    font-size: 1.5vw;
+}
+#user-edit-profile-cancel,
+#user-add-skill-cancel,
+#user-add-previous-work-cancel{
+    color: #cf2f2f;
+    font-weight: 500;
+}
+#description{
+    resize: none;
+    height: 150px;
+}
+#user-add-skill-button,
+#user-add-previous-work-button{
+    font-size: 1vw;
+    text-decoration: none;
+    color: #2f70f9;
+    font-weight: 600;
+}
+.prev-work-cont{
+    margin-bottom: 3%;
+}
+.work-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.work-title a{
+    font-size: 1vw;
+}
+.work-title strong{
+    font-size: 1vw;
+    color: #363636;
+}
+.prev-work-cont p{
+    font-size: 0.8vw;
+    color: #363636;
+}
+/*User Profile CSS End*/
+/*User Profile CSS End*/
+
+/*getting started*/
+#seeker_box{
+    margin: 50px;
+    width: 200px;
+    height: 200px;
+    background-color: #2e70f9;
+    display:block;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px #07070785;
+}
+#seeker_box:hover {
+    background-color: #1c5bda;
+}
+#company_box:hover {
+    background-color: #1c5bda;
+}
+#company_box{
+    margin: 50px;
+    width: 200px;
+    height: 200px;
+    background-color: #2e70f9;
+    display:block;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px #07070785;
+}
+.acc_icon{
+    width: 200px;
+    height: 160px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    color: white;
+
+}
+.acc_type{
+    width: 200px;
+    height: 40px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color:white;
+}
+.select_type_link{
+    text-decoration: none;
+}
+#acc_btn_container{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+#acc_btn_container{
+    width: 100%;
+    position: relative;
+    margin-inline: auto;
+    top: 40%;
+    transform: translateY(-50%);
+}
+#getstart_quest{
+    position: relative;
+    top: 20%;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.7rem;
+}
+.main_getstart{
+    width: 100%;
+    height: 100vh;
+    display: block;
+}
+/*-- getting started --*/
+
+/* form initial */
+.initial_container{
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+.initial-form-container{
+    width: 50%;
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    margin-inline: auto;
+    padding: 5%;
+}
+
+.initial-page-img{
+    width: 100%;
+    max-width: 50%;
+    display: inline-block;
+}
+.initial-page-img img{
+    object-fit: cover;
+    width: 100%;
+    height: 100vh;
+}
+.submit-initial-btn{
+    width: 100%;
+    max-width: 100%;
+    padding: 2.5%;
+    border: none;
+    background-color: #2e70f9;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.submit-initial-btn:hover {
+    background-color: var(--hover);
+    color: white;
+}
+#initial-form-instruc {
+    margin-bottom: 3%;
+}
+/*--- initial form ---*/
+
+/* User  Profile */
+#user-edit-profile-form{
+    display: none;
+    margin-bottom: 3%;
+}
+#user-add-skill-form{
+    display: none;
+}
+#user-add-previous-work-form{
+    display: none;
+}
+/* Job Applications CSS Start*/
+td a{
+    text-decoration: none;
+    color: #2e70f9;
+    border-bottom: 1px solid #2e70f9;
+    font-weight: 600;
+}
+tr{
+    background-color: #EEEEEE;
+    color: black;
+}
+caption{
+    font-weight: bold;
+    font-size: 5vh;
+    color: #3c3e40;
+}
+th{
+    background-color: #2f70f9;
+    color: white;
+}
+.job-applications-container{
+    position: relative;
+    width: 100%;
+    padding-top: 8%;
+    padding-bottom: 5%;
+    margin: auto;
+}
+table, th, td, tr{
+    border: 5px solid white;
+    border-collapse: collapse;
+    padding: 2px;
+}
+.job-applications-container table{
+    margin: auto;
+    text-align: center;
+    width: 60%;
+}
+/* Job Applications CSS End*/
+/* User View Job CSS Start*/
+.user-view-job-main-container{
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    background-color: #f4faff;
+}
+.user-view-job-container{
+    padding: 3%;
+    margin: auto;
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 60%;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px #ababab85;
+    position: relative;
+    top: 55%;
+    transform: translateY(-45%);
+}
+.user-view-job-information{
+    padding: 2vh;
+    /* margin: auto; */
+    width: 80%;
+    /* padding-left: 6%; */
+    align-content: center;
+    border-radius: 5px;
+}
+.user-view-job-status{
+    margin: auto;
+    width: 80%;
+    text-indent: 4vh;
+}
+.user-view-job-company-name{
+    font-size: 1.5vw;
+    font-weight: 500;
+    font-style: italic;
+    color: #3c3e40;
+    margin-bottom: 2%;
+}
+.user-view-job-title{
+    font-size: 3vw;
+    font-weight: bold;
+    color: #2e70f9;
+    width: 100%;
+}
+.user-view-job-description{
+    color: #3c3e40;
+    width: 80%;
+    font-size: 1.1vw;
+    margin-bottom: 3%;
+}
+.user-view-job-header{
+    color: #2e70f9;
+}
+.user-view-job-content{
+    text-indent: 2vh;
+    font-size: 1vw;
+    color: #3c3e40;
+}
+.user-view-job-status{
+    text-indent: 4vh;
+    font-size: 1.1vw;
+    font-style: italic;
+    color: #3c3e40;
+    text-align: center;
+}
+.user-view-job-status .user-view-job-status-rejected{
+    text-indent: 4vh;
+    font-size: 2.5vh;
+    font-style: italic;
+    color: red;
+}
+.user-view-job-status .user-view-job-status-accepted{
+    text-indent: 4vh;
+    font-size: 2.5vh;
+    font-style: italic;
+    color: green;
+}
+.user-view-job-apply-button{
+    color: white;
+    background-color: #2f70f9;
+    padding: 1.5vh;
+    width: 30vh;
+    border: none;
+    border-radius: 10px;
+}
+.user-view-job-apply-button:hover{
+    cursor:pointer;
+    background-color: #134abf;
+}
+/* User View Job Css End*/
+/* User Password Change and Password Change Done CSS Start*/
+.user-password-change-main-container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background-color: #2e70f9;
+}
+.user-password-change-container{
+    padding: 3vh;
+    margin: auto;
+    width: 30%;
+    border-radius: 20px;
+    box-shadow: 0px 0px 30px #07070785;
+    background-color: white;
+}
+.user-password-change-container a{
+    text-decoration: none;
+    color: #2e70f9;
+    font-weight: 600;
+    border-bottom: 1px solid #2e70f9;
+}
+.user-password-change-container form{
+    padding-bottom: 4vh;
+}
+.errorlist{
+    padding: 0;
+    color: red;
+    list-style-type: none;
+    font-style: italic;
+    font-size: 2.1vh;
+}
+.user-change-password-form-label{
+    color: #2e70f9;
+    font-weight: bold;
+    font-size: 16px;
+}
+.user-change-password-button{
+    background-color: #2e70f9;
+    color: white;
+    border: none;
+    padding: 2vh;
+    border-radius: 10px;
+    width: 100%;
+}
+.user-change-password-button:hover{
+    cursor: pointer;
+    background-color: #134abf;
+}
+.user-password-change-container-title{
+    text-align: center;
+    padding-bottom: 2vh;
+    font-weight: bold;
+    color: #2e70f9;
+    font-size: 24px;
+}
+.back-to-profile{
+    text-align: center;
+}
+.password-changed-main-container{
+    width: auto;
+    height: 100vh;
+    display: flex;
+}
+.password-changed-container{
+    margin: auto;
+    font-size: 20px;
+    color: black;
+    font-weight: bold;
+}
+.password-changed-container a{
+    text-decoration: none;
+    color: #2e70f9;
+}
+/* User Password Change and Password Change Done CSS End*/
+/* View Seeker/Company Profile CSS Start */
+.view-company-list-of-posted-jobs-header{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    padding-bottom: 2vh;
+    font-weight: bold;
+    font-size: 24px;
+    color: #2e70f9;
+}
+.view-company-list-of-posted-jobs{
+    position: absolute;
+    top: 80%;
+    width: 100%;
+    margin: auto;
+}
+.view-company-job-item{
+    width: 50%;
+    margin: auto;
+    padding: 2vh;
+    box-shadow: 0px 0px 5px #24242450;
+    border-radius: 10px;
+    margin-bottom: 3vh;
+}
+.view-company-job-title-header{
+    color: #2e70f9;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+}
+.view-company-list-of-posted-jobs a{
+    text-decoration: none;
+}
+.view-company-job-description{
+    font-size: 2vh;
+    color: #363636;
+    font-style: italic;
+}
+.view-company-job-salary label{
+    font-weight: bold;
+    color: #2e70f9;
+}
+.view-company-job-salary span{
+    font-size: 2vh;
+    color: #363636;
+}
+.view-company-job-location label{
+    font-weight: bold;
+    color: #2e70f9;
+}
+.view-company-job-location span{
+    font-size: 2vh;
+    color: #363636;
+    font-style: italic;
+}
+.view-company-job-qualification label{
+    font-weight: bold;
+    color: #2e70f9;
+}
+.view-company-job-qualification span{
+    font-size: 2vh;
+    color: #363636;
+    font-style: italic;
+}
+.view-company-job-status span{
+    font-size: 2vh;
+    color: #363636;
+    font-style: italic;
+}
+/* View Seeker/Company Profile CSS End*/

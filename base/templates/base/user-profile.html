@@ -1,0 +1,224 @@
+<div class="user-profile-main-cont">
+    {% extends 'main.html' %}
+{% block content %}
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{% if messages %}
+<div class="messages">
+{% for message in messages %}
+<div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+{% endfor %}
+</div>
+{% endif %}
+{% if page == 'jobseeker' %}
+<div class = 'user-profile'>
+    <div class="user-leftside-section">
+        <div class="profile-pic-container">
+            <div class = 'change-profile-picture'>
+                <div class="user-picture-container">
+                    <img src="{{ u.user_image.url }}" alt="">
+                </div>
+                <div class="user-pic-upload-container">
+                    <form action="" method = "POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="hidden" name="action" value="change_profile_picture">
+                        {{form_profile_picture}}
+                        <input type="submit" value="Upload" class="upload-pic-btn">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="user-resume-container">
+            <div class ='upload-profile-resume'>
+                <div>
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="hidden" name="action" value="upload-profile-resume">
+                        {{form_upload_resume}}
+                        <input type="submit" value="Upload" class="upload-res-btn">
+                    </form>
+                </div>
+                {% if u.user_resume %}
+                <div class="download-res-cont">Your Resume: <a href="{{u.user_resume.url}}">Download Here</a></div>
+                {% else %}
+                <div class="download-res-cont">Resume not found please upload your Resume</div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="user-action-btn">
+            <div class="action-btn">
+                <div class="edit-profile-btn">
+                    <a href="" id ='user-edit-profile-button'>Edit User Profile</a>
+                </div>
+                <div class = 'user-change-password'>
+                    <a href="{% url 'change_password' %}">Change Password</a>
+                </div>
+                <div class="user-delete-btn">
+                    <a href="#" onclick="deleteAccount()">Delete Account</a>
+                    <a href="{% url 'delete_account' %}" id="deleteAccount"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="profile-info-container">
+        <!-- edit profile form and div-->
+        <div class = 'user-profile-information'>
+            <div class="user-info-cont">
+                <div class = 'user-profile-personal-info' id = 'user-profile-personal-info'>
+                    <!-- <label for="">Name: </label> -->
+                    <h3>{{u.first_name}} {{u.last_name}}</h3>
+                    <!-- <label for="">Description: </label>  -->
+                    <h5>{{u.description}}</h5>
+                    <label for="">Email: </label>
+                    <span>{{u.user.email}}</span>
+                    <!-- <label for="">Recent Job: </label> -->
+                </div>
+            </div>
+            <div id="user-edit-profile-form">
+                <h4>User Information</h4>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {{form_edit_profile.as_p}}
+                    <input type="hidden" name="action" value="user-edit-profile" >
+                    <input type="submit" value="Update Profile" class="update-btn">
+                </form>
+                <a href="" id ='user-edit-profile-cancel' id ='user-edit-profile-cancel'>Cancel</a>
+            </div>
+            
+                <!-- edit skills form and div-->
+            <div class = 'user-profile-skills'>
+                <h4>Skills</h4>
+                {% if skills %}
+                    {% for skill in skills %}
+                    <ul><li><div class="skill-cont">
+                        <p>{{skill.skill_name}}</p>
+                        <a href="#" onclick="confirmSkillRemove('{{skill.id}}','{{skill.skill_name}}')" id = 'skill-remove'>Remove</a>
+                    </div></li></ul>
+                    {% endfor %}
+                {% else %}
+                    <div class="add-skill-txt">Add Skills in your profile</div>
+                {% endif %}
+    
+                <div id = 'user-add-skill-form'>
+                    <form action="" method = "POST">
+                        {% csrf_token %}
+                        {{form_add_skill}}
+                        <input type="hidden" name="action" value="user-add-skill" >
+                        <input type="submit" value="Add Skill">
+                    </form>
+                    <a href="" id ='user-add-skill-cancel'>Cancel</a>
+                </div>
+                <a href="" id = 'user-add-skill-button'>+ Add Skill</a>
+            </div>
+                <!-- edit work form and div-->
+            <div class = 'user-profile-works'>
+                <div>
+                    <h4>Previous Work</h4>
+                </div>
+                {% if works %}
+                    {% for work in works %}
+                    <ul><li><div class="prev-work-cont">
+                        <div class="work-title"><strong>{{work.name}}</strong>
+                        <a href="#" onclick="confirmWorkDelete('{{work.id}}', '{{work.name}}')">Remove</a></div>
+                        <p>{{work.description}}</p>
+                        <p>Duration: {{work.yearStarted}} - {{work.yearEnded}}</p>
+                        
+                    </div></li></ul>
+                    {% endfor %}
+                {% else %}
+                    <div class="add-work-txt">
+                        Add previous work in your profile.
+                    </div>
+                {% endif %}
+    
+                <div id = 'user-add-previous-work-form'>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        {{form_add_work.as_p}}
+                        <input type="hidden" name="action" value="user-add-previous-work" >
+                        <input type="submit" value="Add Work">
+                    </form>
+                    <a href="" id ='user-add-previous-work-cancel'>Cancel</a>
+                </div>
+                <a href="" id ='user-add-previous-work-button'>+ Add Previous Work</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% elif page == 'company' %}
+<div class = 'user-profile'>
+    <div class="user-leftside-section">
+        <div class="profile-pic-container">
+            <div class = 'change-profile-picture'>
+                <div class="user-picture-container">
+                    <img src="{{ u.user_image.url }}" alt="">
+                </div>
+                <div class="user-pic-upload-container">
+                    <form action="" method = "POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="hidden" name="action" value="change_profile_picture">
+                        {{form_profile_picture}}
+                        <input type="submit" value="Upload" class="upload-pic-btn">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="user-action-btn">
+            <div class="action-btn">
+                <div class="edit-profile-btn">
+                    <a href="" id ='user-edit-profile-button'>Edit User Profile</a>
+                </div>
+                <div class = 'user-change-password'>
+                    <a href="{% url 'change_password' %}">Change Password</a>
+                </div>
+                <div class="user-delete-btn">
+                    <a href="#" onclick="deleteAccount()">Delete Account</a>
+                    <a href="{% url 'delete_account' %}" id="deleteAccount"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="profile-info-container">
+        <!-- edit profile form and div-->
+        <div class = 'user-profile-information'>
+            <div class="user-info-cont">
+                <div class = 'user-profile-personal-info' id = 'user-profile-personal-info'>
+                    <!-- <label for="">Name: </label> -->
+                    <h3>{{u.name}}</h3>
+                    <!-- <label for="">Description: </label>  -->
+                    <h5>{{u.description}}</h5>
+                    <label for="">Email: </label>
+                    <span>{{u.user.email}}</span>
+                    <br>
+                    <label for="">Location: </label>
+                    <span>{{u.location}}</span>
+                    <!-- <label for="">Recent Job: </label> -->
+                </div>
+            </div>
+            <div id="user-edit-profile-form">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {{form_edit_profile.as_p}}
+                    <input type="hidden" name="action" value="user-edit-profile" >
+                    <input type="submit" value="Update Profile" class="update-btn">
+                </form>
+                <a href="" id ='user-edit-profile-cancel' id ='user-edit-profile-cancel'>Cancel</a>
+            </div>
+            
+                <!-- edit skills form and div-->
+                <!-- edit work form and div-->
+        </div>
+    </div>
+</div>
+{% endif %}
+<!-- <div class = 'user-change-password'>
+    <a href="{% url 'change_password' %}">Change Password</a>
+</div>
+<div>
+    <a href="#" onclick="deleteAccount()">Delete Account</a>
+    <a href="{% url 'delete_account' %}" id="deleteAccount"></a>
+</div> -->
+{% load sweetify %}
+{% sweetify %}
+{% endblock content %}
+</div>

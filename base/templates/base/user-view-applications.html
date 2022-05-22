@@ -1,0 +1,43 @@
+{% extends 'main.html' %}
+{% block content %}
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<div>
+    {% if messages %}
+    <div class="messages">
+    {% for message in messages %}
+    <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+    {% endfor %}
+    </div>
+    {% endif %}
+    <div class = 'job-applications-container'>
+        <table>
+            <caption>Your Applications</caption>
+            <tr>
+                <th>Company Name</th>
+                <th>Job Description</th>
+                <th>Date Applied</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+            {% for application in applications %}
+                <tr>
+                    <td><a href="{% url 'seeker_view_company' application.job.company.id %}">{{application.job.company}}</a></td>
+                    <td>{{application.job.title}}</td>
+                    <td>{{application.date_applied}}</td>
+                    <td>{{application.application_status}}</td>
+                    <td>
+                        {% if application.application_status == 'Pending' %}
+                        <a href="{% url  'seeker_canceldelete_applications' application.id %}" id="cancel"></a>
+                        <a href="#" onclick="userApplication('cancel')">Cancel</a>
+                        {% else  %}
+                        <a href="{% url  'seeker_canceldelete_applications' application.id %}" id="remove"></a>
+                        <a href="#" onclick="userApplication('remove')">Remove</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% load sweetify %}
+    {% sweetify %}
+{% endblock content %}

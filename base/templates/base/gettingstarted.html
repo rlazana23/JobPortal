@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'base/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="main_getstart">
+
+        <div id="getstart_quest">
+            <p>Are you a Job Seeker or a Company/Employer? </p>
+        </div>
+
+        <div id="acc_btn_container">
+
+            <div><a href="{% url 'seeker_form' %}" class="select_type_link">
+                    <div id="seeker_box">
+                        <div class="acc_icon">
+                            <i class='bx bxs-user-detail'></i>
+                        </div>
+                        <div class="acc_type">
+                            Job Seeker
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div>
+                <a href="{% url 'company_form' %}" class="select_type_link">
+                    <div id="company_box">
+                        <div class="acc_icon">
+                            <i class='bx bxs-buildings'></i>
+                        </div>
+                        <div class="acc_type">
+                            Employer
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+
+</html> 

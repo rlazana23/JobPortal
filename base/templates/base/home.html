@@ -1,0 +1,64 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="homepage-main-cont">
+    {% if q and page %}
+    <div class="home-banner-container" style = "display : none">
+    {% else %}
+    <div class="home-banner-container">
+    {% endif %}
+        <div class="banner-photo-cont">
+            <img src='../media/images/Banner_Photo.png'>
+        </div>
+        <div class="banner-txt-cont">
+            <h2>Find your dream job with <span>Profound<span></h2>
+            <h3>Get the most exciting jobs from all around the world and grow your career fast with others.</h3>
+            <button class="banner-btn" id="banner-btn">Apply Now</button>
+        </div>
+    </div>
+    <div class="job-container-main">
+        <div class='job-options'>
+            <a href="{% url 'home' %}">Reset</a>
+            <a href="{% url 'home' %}?q=Full">Full Time</a>
+            <a href="{% url 'home' %}?q=Part">Part Time</a>
+        </div>
+        <div class="banner-job-main-container">
+            <div class='posted-job-title'><h3>POSTED JOB</h3></div>
+            <div class="job-list-cont">
+                {% if page %}
+                    {% for job in page_obj %}
+                        <a href="{% url 'viewJob' job.id %}">
+                        <div class='job-container'>
+                            <p class="company-name">{{job.company}}</p>
+                            <p class="job-title">{{job.title}}</p>
+                            <p class="job-desc">{{job.job_description}}</p>
+                            <p class="job-location">{{job.company.location}}</p>
+                            {% if job.ispart_time %}
+                            <p class='job-status'>Part Time</p>
+                            {% else %}
+                            <p class='job-status'>Full Time</p>
+                            {% endif %}
+                        </div></a>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+        <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+        
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+        
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+</div>
+{% endblock content %}

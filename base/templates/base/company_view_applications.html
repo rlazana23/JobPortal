@@ -1,0 +1,75 @@
+{% extends 'main.html' %}
+{% block content %}
+<div>
+    {% if messages %}
+    <div class="messages">
+    {% for message in messages %}
+    <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+    {% endfor %}
+    </div>
+    {% endif %}
+    <div class = 'user-view-job-main-container'>
+        <div class="user-view-job-container">
+            <div class = 'user-view-job-information'>
+                <div class="user-view-job-company-name">
+                    Job Information
+                </div>
+                <div class="user-view-job-title">
+                    <p>{{job.title}}</p>
+                </div>
+
+                <div class="user-view-job-description">
+                    <em>{{job.job_description}}</em>
+                </div>
+                    <p><strong class="user-view-job-header">Date Posted</strong></p>
+                    <p class = 'user-view-job-content'>{{job.date_posted}}</p>
+                    <p><strong class="user-view-job-header">Salary</strong></p>
+                    <p class = 'user-view-job-content'>{{job.salary}}</p>
+                    <p><strong class="user-view-job-header">Location</strong></p>
+                    <p class = 'user-view-job-content'>{{job.company.location}}</p>
+                    <p><strong class="user-view-job-header">Qualification</strong></p>
+                    <p class = 'user-view-job-content'>{{job.qualification}}</p>
+                    {% if job.ispart_time %}
+                        <p><strong class="user-view-job-header">Employment Type</strong></p>
+                        <p class = 'user-view-job-content'>Part Time</p>
+                    {% else %}
+                        <p><strong class="user-view-job-header">Employment Type</strong></p>
+                        <p class = 'user-view-job-content'>Full Time</p>
+                    {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class = 'job-applications-container'>
+        <table>
+            <caption>Applicants</caption>
+            <tr>
+                <th>Employee Name</th>
+                <th>Date Applied</th>
+                <th>Status</th>
+                <th>Resume</th>
+                <th>Actions</th>
+            </tr>
+            {% for application in applications %}
+                <tr>
+                    <td><a href="{% url 'company_view_seeker' application.seeker.id %}">{{application.seeker.first_name}} {{application.seeker.last_name}}</a></td>
+                    <td>{{application.date_applied}}</td>
+                    <td>{{application.application_status}}</td>
+                    <td><a href="{{ application.seeker.user_resume.url }}">Resume</a></td>
+                    <td>
+                        {% if application.application_status == 'Pending' %}
+                        <a href="{% url 'company_accept_application' job.id application.id %}" id="accept"></a>
+                        <a href="{% url 'company_reject_application' job.id application.id %}" id="reject"></a>
+                        <a href="#" onclick="application('accept')">Accept</a>
+                        <a href="#" onclick="application('reject')">Reject</a>
+                        {% else %}
+                        <a href="{% url 'company_revoke_action' job.id application.id %}">Revoke Actions</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% load sweetify %}
+{% sweetify %}
+{% endblock content %}

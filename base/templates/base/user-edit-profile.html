@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+{% block content %}
+<div>
+    {% if page == 'jobseeker' %}
+        <div>
+            <form action="" method = "POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" value="Update">
+            </form>
+        </div>
+    {% elif page == 'company' %}
+        <div>
+            <form action="" method = "POST">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" value="Update">
+            </form>
+        </div>
+    {% endif  %}
+</div>
+{% endblock content %}

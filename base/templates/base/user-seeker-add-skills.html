@@ -1,0 +1,35 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<div>
+    {% if messages %}
+    <div class="messages">
+    {% for message in messages %}
+    <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+    {% endfor %}
+    </div>
+    {% endif %}
+    {% for skill in skills %}
+        <div>
+            {{skill.skill_name}}
+            <form action="" method = "POST">
+                {% csrf_token %}
+                <input type="hidden" name="operation" value="delete_skill">
+                <input type="hidden" name ="skill_id" value="{{skill.id}}">
+                <input type="submit" value="Delete">
+            </form>
+        </div>
+    {% endfor %}
+    <div>
+        <form action="" method = "POST">
+            {% csrf_token %}
+            {{form}}
+            <input type="hidden" name="operation" value="add_skill">
+            <input type="submit" value="Add">
+        </form>
+    </div>
+</div>
+{% load sweetify %}
+{% sweetify %}
+{% endblock content %}

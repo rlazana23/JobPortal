@@ -1,0 +1,66 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<div>
+    {% if messages %}
+    <div class="messages">
+    {% for message in messages %}
+    <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+    {% endfor %}
+    </div>
+    {% endif %}
+    <div class = 'user-view-job-main-container'>
+        <div class="user-view-job-container">
+            <div class = 'user-view-job-information'>
+
+                <div class="user-view-job-title">
+                    <p>{{job.title}}</p>
+                </div>
+                <div class="user-view-job-company-name">
+                    {{job.company}}
+                </div>
+                <div class="user-view-job-description">
+                    <em>{{job.job_description}}</em>
+                </div>
+                    <p><strong class="user-view-job-header">Date Posted</strong></p>
+                    <p class = 'user-view-job-content'>{{job.date_posted}}</p>
+                    <p><strong class="user-view-job-header">Salary</strong></p>
+                    <p class = 'user-view-job-content'>{{job.salary}}</p>
+                    <p><strong class="user-view-job-header">Location</strong></p>
+                    <p class = 'user-view-job-content'>{{job.company.location}}</p>
+                    <p><strong class="user-view-job-header">Qualification</strong></p>
+                    <p class = 'user-view-job-content'>{{job.qualification}}</p>
+                    {% if job.ispart_time %}
+                        <p><strong class="user-view-job-header">Employment Type</strong></p>
+                        <p class = 'user-view-job-content'>Part Time</p>
+                    {% else %}
+                        <p><strong class="user-view-job-header">Employment Type</strong></p>
+                        <p class = 'user-view-job-content'>Part Time</p>
+                    {% endif %}
+            </div>
+    
+            <div class="user-view-job-status">
+                {% if applied.application_status == 'Denied' %}
+                    <p class = 'user-view-job-status-rejected'>Application Rejected</p>
+                {% elif applied.application_status == 'Accepted' %}
+                    <p class = 'user-view-job-status-accepted'>Accepted</p>
+                {% elif applied.application_status == 'Pending' %}
+                    <p class = 'user-view-job-status-accepted'>Pending</p>
+                {% elif  u.user_resume == '' %}
+                    <p>Please upload your resume to apply</p>
+                {% else %}
+                    <form action="" POST method = "POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="job_id" value = "{{job.id}}">
+                        <input type="hidden" name="seeker_id"  value = "{{u.id}}">
+                        <input type="submit" value="Apply" class = 'user-view-job-apply-button'>
+                    </form>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+</div>
+{% load sweetify %}
+{% sweetify %}
+{% endblock content %}

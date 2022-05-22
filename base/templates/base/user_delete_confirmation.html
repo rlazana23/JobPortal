@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{% block content %}
+<div style="display: block;">
+    <!-- <p>Are you sure you want to delete your account?</p>
+    <p>By Clicking yes, you will not revert your actions</p> -->
+    <form action="" method = "POST" id="deleteYes">
+        {% csrf_token %}
+        <input type="hidden" name="Action" value="yes">
+        <input type="submit" value="Yes">
+    </form>
+    <form action=""  method = "POST" id="deleteNo">
+        {% csrf_token %}
+        <input type="hidden" name="Action" value="no">
+        <input type="submit" value="No">
+    </form>
+</div>
+
+<!-- Di ko ma connect external js dito na lang haha -->
+<script>
+    deleteAccount();
+
+    function deleteAccount(){
+    Swal.fire({
+            title: 'Are you sure you want to delete your account?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // window.location.href = "{% url 'delete_account' %}";
+                document.getElementById('deleteYes').submit;
+            }else{
+                document.getElementById('deleteNo').submit;
+            }
+        })
+    };
+</script>
+{% load sweetify %}
+{% sweetify %}
+{% endblock content %}

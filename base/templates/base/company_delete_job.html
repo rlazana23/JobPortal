@@ -1,0 +1,11 @@
+{% extends 'main.html'  %}
+{% block content %}
+<div>
+    <div>
+        <p>Are you sure you want to delete {{job.title}}?</p>
+        <p>By Clicking Yes, you cannot revert your Actions</p>
+        <a href="{% url 'company_delete_job' job.id 'yes' %}">Yes</a>
+        <a href="company">No</a>
+    </div>
+</div>
+{% endblock content %}

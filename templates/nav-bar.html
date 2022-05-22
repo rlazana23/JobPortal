@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Company</title>
+</head>
+<body>
+    <div class = 'main-nav-bar'>
+        <div class = 'nav-bar-logo'>
+            {% if page == 'jobseeker' %}
+            <a href="{% url 'home' %}">
+                <img src="{% static 'base/logo.png' %}">
+            </a>
+            {% elif page == 'company' %}
+            <a href="{% url 'company' %}">
+                <img src="{% static 'base/logo.png' %}">
+            </a>
+            {% endif %}
+        </div>
+        {% if page == 'jobseeker' %}
+        <div class = 'nav-bar-search'>
+            <form action="{% url 'home' %}" method = "GET">
+                <input type="text" name="q" placeholder="Search Job...">
+            </form>
+        </div>
+        {% elif page == 'company' %}
+        <div class = 'nav-bar-username'>
+            Welcome, {{u.name}}!
+        </div>
+        {% endif %}
+        <div class = 'nav-bar-options'>
+            
+            {% if page == 'jobseeker' %}
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'user_profile' %}">Profile</a>
+            <a href="{% url 'seeker_view_applications' %}">My Applications</a>
+            {% elif page == 'company' %}
+            <a href="{% url 'company' %}">Home</a>
+            <a href="{% url 'company_profile' %}">Profile</a>
+            {% endif %}
+            
+            <!-- <a href="{% url 'logout_confirm' %}">Logout</a> -->
+            <a href="#" onclick="logout()">Logout</a>
+        </div>
+    </div>
+</body>
+</html>

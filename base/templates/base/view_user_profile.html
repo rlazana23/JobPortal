@@ -1,0 +1,150 @@
+{% extends 'main.html' %}
+{% block content %}
+{% if page == 'company' %}
+<div class = 'user-profile'>
+    <div class="user-leftside-section">
+        <div class="profile-pic-container">
+            <div class = 'change-profile-picture'>
+                <div class="user-picture-container">
+                    <img src="{{ seeker.user_image.url }}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="profile-info-container">
+        <!-- edit profile form and div-->
+        <div class = 'user-profile-information'>
+            <div class="user-info-cont">
+                <div class = 'user-profile-personal-info' id = 'user-profile-personal-info'>
+                    <!-- <label for="">Name: </label> -->
+                    <h3>{{seeker.first_name}} {{seeker.last_name}}</h3>
+                    <!-- <label for="">Description: </label>  -->
+                    <h5>{{seeker.description}}</h5>
+                    <label for="">Email: </label>
+                    <span>{{seeker.user.email}}</span>
+                    <!-- <label for="">Recent Job: </label> -->
+                </div>
+            </div>
+            <div id="user-edit-profile-form">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {{form_edit_profile.as_p}}
+                    <input type="hidden" name="action" value="user-edit-profile" >
+                    <input type="submit" value="Update Profile" class="update-btn">
+                </form>
+                <a href="" id ='user-edit-profile-cancel' id ='user-edit-profile-cancel'>Cancel</a>
+            </div>
+            
+                <!-- edit skills form and div-->
+            <div class = 'user-profile-skills'>
+                <h4>Skills</h4>
+                {% if skills %}
+                    {% for skill in skills %}
+                    <ul><li><div class="skill-cont">
+                        <p>{{skill.skill_name}}</p>
+                    </div></li></ul>
+                    {% endfor %}
+                {% else %}
+                    <div>Add Skills in your profile</div>
+                {% endif %}
+            </div>
+                <!-- edit work form and div-->
+            <div class = 'user-profile-works'>
+                <div>
+                    <h4>Previous Work</h4>
+                </div>
+                {% if works %}
+                    {% for work in works %}
+                    <ul><li><div class="prev-work-cont">
+                        <div class="work-title"><strong>{{work.name}}</strong></div>
+                        <p>{{work.description}}</p>
+                        <p>Duration: {{work.yearStarted}} - {{work.yearEnded}}</p>
+                        
+                    </div></li></ul>
+                    {% endfor %}
+                {% else %}
+                    <div>
+                        Add previous work in your profile.
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% elif page == 'jobseeker' %}
+<div class = 'user-profile'>
+    <div class="user-leftside-section">
+        <div class="profile-pic-container">
+            <div class = 'change-profile-picture'>
+                <div class="user-picture-container">
+                    <img src="{{ company.user_image.url }}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="profile-info-container">
+        <!-- edit profile form and div-->
+        <div class = 'user-profile-information'>
+            <div class="user-info-cont">
+                <div class = 'user-profile-personal-info' id = 'user-profile-personal-info'>
+                    <!-- <label for="">Name: </label> -->
+                    <h3>{{company.name}}</h3>
+                    <!-- <label for="">Description: </label>  -->
+                    <h5>{{company.description}}</h5>
+                    <label for="">Email: </label>
+                    <span>{{company.user.email}}</span>
+                    <br>
+                    <label for="">Location:</label>
+                    <span>{{company.location}}</span>
+                    <!-- <label for="">Recent Job: </label> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="view-company-list-of-posted-jobs">
+    <div class="view-company-list-of-posted-jobs-header">
+        POSTED JOBS
+    </div>
+    {% for job in jobs %}
+    <a href="{% url 'viewJob' job.id %}">
+        <div class="view-company-job-item">
+            <div class = 'view-company-job-title-header'>
+                {{job.title}}
+            </div>
+            <div class="view-company-job-description">
+                {{job.job_description}}
+            </div>
+            <div class="view-company-job-location">
+                <label for="">Location: </label>
+                <span>{{job.company.location}}</span>
+            </div>
+            <div class="view-company-job-salary">
+                <label for="">Salary: </label>
+                <span>{{job.salary}}</span>
+            </div>
+            <div class="view-company-job-qualification">
+                <label for="">Qualification: </label>
+                <span>{{job.qualification}}</span>
+            </div>
+            <div class = "view-company-job-status">
+                {% if job.is_active %}
+                    <span>Hiring</span>
+                    {% if job.ispart_time %}
+                    <span>, Part Time</span>
+                    {% else %}
+                    <span>, Full Time</span>
+                    {% endif %}
+                {% else %}
+                    <span>Closed</span>
+                {% endif %}
+            </div>
+        </div>
+        
+    </a>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock content %}

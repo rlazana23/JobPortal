@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'base/style.css' %}">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{% static 'base/script.js' %}"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="main-container">
+        <div class='register-page'>
+            {% if messages %}
+            <ul class="errorlist">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+            </ul>
+            {% endif %}
+            <div class='logo-container'>
+                <img src='../media/images/logo.png'>
+            </div>
+            <div class='register-form-container'>
+                <form action="" method = "POST">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <div class="register-submit-btn">
+                        <input type="submit" value="Register" class="submit-btn">
+                    </div>
+                </form>
+            </div>
+            <a href="{% url 'login' %}">Back to login</a>
+        </div>
+        <div class='register-page-img'>
+            <img src='../media/images/login_img.jpg'>
+        </div>
+    </div>
+{% load sweetify %}
+{% sweetify %}
+</body>
+</html>

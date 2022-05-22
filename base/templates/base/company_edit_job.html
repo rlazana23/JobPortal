@@ -1,0 +1,39 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="company-edit-form-cont">
+    <form action="" method = "POST">
+        <!-- {% csrf_token %}
+        {{form.as_p}} -->
+        <div class="company-form-cont" style="display: block;">
+                {% csrf_token %}
+                <div class="job-title-cont">
+                    <label>Job Title</label>
+                    {{form.title}}
+                </div>
+                <div class="job-desc-cont">
+                    <label>Job Description</label>
+                    {{form.job_description}}
+                </div>
+                <div class="salary-cont">
+                    <label>Salary</label>
+                    {{form.salary}}
+                </div>
+                <div class="qualification-cont">
+                    <label>Qualification</label>
+                    {{form.qualification}}
+                </div>
+                <div class="part-time-cont">
+                    <label>Is Part-Time?</label>
+                    {{form.ispart_time}}
+                </div>
+                <div class="is-hiring-cont">
+                    <label>Hiring?</label>
+                    {{form.is_active}}
+                </div>
+                <input type="submit" value="Update" class="company-update-btn">
+                <input type="hidden" name="pk" value="{{key}}">
+        </div>
+    </form>
+</div>
+{% endblock content %}

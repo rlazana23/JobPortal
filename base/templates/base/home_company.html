@@ -1,0 +1,88 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div class="company-home-main-cont">
+    {% if messages %}
+    <div class="messages">
+    {% for message in messages %}
+    <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+    {% endfor %}
+    </div>
+    {% endif %}
+    <div class="company-home-form-cont">
+        <div class="form-cont-title">
+            <h3>Post Job</h3>
+        </div>
+        <div class="company-form-post-job">
+            <button class="company-submit-btn" id = 'post-job-btn'>Post A Job</button>
+        </div>
+        <div class="company-form-cont">
+            <form action="" method = "POST">
+                {% csrf_token %}
+                <div class="job-title-cont">
+                    <label>Job Title</label>
+                    {{form.title}}
+                </div>
+                <div class="job-desc-cont">
+                    <label>Job Description</label>
+                    {{form.job_description}}
+                </div>
+                <div class="salary-cont">
+                    <label>Salary</label>
+                    {{form.salary}}
+                </div>
+                <div class="qualification-cont">
+                    <label>Qualification</label>
+                    {{form.qualification}}
+                </div>
+                <div class="part-time-cont">
+                    <label>Is Part-Time?</label>
+                    {{form.ispart_time}}
+                </div>
+                <input type="submit" value="POST" class="company-submit-btn">
+            </form>
+            <div class="company-form-close-form">
+                <button class="close-job-btn" id = 'close-job-btn'>Close Form</button>
+            </div>
+        </div>
+
+        {% if jobs %}
+        <div class="company-posted-form">
+                {% for job in jobs %}
+                <div class="posted-job-cont">
+                    {% if job.is_active %}
+                        <h3>Hiring</h3>
+                    {% else %}
+                        <h3>Closed</h3>
+                    {% endif %}
+                    <h2 class="job-company-name">{{job.company}}</h2>
+                    <p class="company-job-tile">{{job.title}}</p>
+                    <p class="company-job-desc">{{job.job_description}}</p>
+                    <p class="company-job-salary">{{job.salary}}</p>
+                    {% if job.ispart_time == True %}
+                        <p class="company-job-stat">Part Time</p>
+                    {% else %}
+                        <p class="company-job-stat">Full Time</p>
+                    {% endif %}
+                </div>
+                <div class="comp-func-btn">
+                    <div class="view-app">
+                        <a href="{% url 'company_view_applications' job.id %}">View Applications</a>
+                    </div>
+                    <div class="edit-job-info">
+                        <a href="{% url 'company_edit_job' job.id %}">Edit Job Information</a>
+                    </div>
+                    <div class="company-del-job">
+                        <a href="#" onclick="deleteJob('{{job.id}}')">Delete Job</a>
+                    </div>
+                    
+                     <!--hidden href-->
+                </div>
+                {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% load sweetify %}
+{% sweetify %}
+{% endblock content %}
